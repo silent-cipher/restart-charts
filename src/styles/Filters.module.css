@@ -1,0 +1,30 @@
+.filter-container {
+  padding: 1rem 2rem;
+  background-color: #fff;
+  border-radius: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin: 2rem 0;
+}
+
+.filter {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.filter > select {
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid #000;
+  background-color: #f0f0f0;
+  color: #000;
+  border: transparent;
+  cursor: pointer;
+}
+.filter > select:focus,
+.filter > select:active {
+  border-color: blue;
+  outline: blue;
+}
