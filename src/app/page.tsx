@@ -1,7 +1,5 @@
 "use client";
 import styles from "@/styles/Page.module.css";
-import { ChartData } from "@/utils/types";
-import { useEffect, useState } from "react";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -16,14 +14,11 @@ import {
 import { useChartData } from "@/hooks/useChartData";
 import { Line } from "react-chartjs-2";
 import Filters from "@/components/Filters";
-import {
-  prepareChartData,
-  prepareMonthData,
-  prepareOneMonthData,
-} from "@/utils/helper";
+import { prepareChartData, prepareMonthData } from "@/utils/helper";
 import ChainSpecificChart from "@/components/ChainSpecificChart";
 import { getChartOptions } from "@/utils/chartOptions";
 import { Loading } from "@/components/Loading";
+import { useFilterState } from "@/hooks/useFilterState";
 
 ChartJS.register(
   CategoryScale,
@@ -38,35 +33,8 @@ ChartJS.register(
 
 export default function Home() {
   const { loading, data } = useChartData();
-  const [chainState, setChainState] = useState({
-    chain: "ethereum",
-    month: "all",
-    graphType: "line",
-    cummulative: false,
-  });
+  const { chainState, setChainState, chainData } = useFilterState(data);
 
-  const { chain, month, cummulative } = chainState;
-
-  let chainData = data
-    ? JSON.parse(JSON.stringify(data?.data[chain]))
-    : undefined;
-
-  if (month !== "all" && data) {
-    const yearMonth = month.slice(0, 7);
-    chainData = prepareOneMonthData(data, yearMonth, chainState.chain);
-  }
-
-  if (cummulative) {
-    let cumulativeValue = 0;
-    for (const date in chainData) {
-      cumulativeValue += chainData[date];
-      chainData[date] = cumulativeValue;
-    }
-  }
-
-  useEffect(() => {
-    chainData = data?.data[chain as keyof ChartData];
-  }, [data]);
   return (
     <main className={styles.main}>
       <div className={styles["main-container"]}>
@@ -98,14 +66,7 @@ export default function Home() {
             {loading || !chainData ? (
               <Loading />
             ) : (
-              <ChainSpecificChart
-                data={{
-                  data: {
-                    [chain]: chainData,
-                  },
-                }}
-                chainState={chainState}
-              />
+              <ChainSpecificChart data={chainData} chainState={chainState} />
             )}
           </div>
         </section>

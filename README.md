@@ -2,7 +2,9 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, run the development server:
+First, make environment file at root of the project and set `NEXT_PUBLIC_CHART_DATA_URL` to api-endpoint of restart data.
+
+Second, run the development server:
 
 ```bash
 npm run dev

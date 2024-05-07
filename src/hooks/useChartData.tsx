@@ -11,7 +11,7 @@ export const useChartData = () => {
       setLoading(true);
       try {
         const response = await fetch(
-          "http://blockflow.duckdns.org:8080/restart/info"
+          process.env.NEXT_PUBLIC_CHART_DATA_URL as string
         );
         const chartData = await response.json();
         setData(chartData as ChartData);
