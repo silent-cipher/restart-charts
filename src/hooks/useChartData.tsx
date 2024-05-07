@@ -1,27 +1,19 @@
 "use client";
 import { useState, useEffect } from "react";
-import { data as chartData } from "@/utils/data";
-
-export type ChartData = {
-  data: {
-    [key: string]: {
-      [key: string]: number;
-    };
-  };
-};
+import { ChartData } from "@/utils/types";
 
 export const useChartData = () => {
-  const [data, setData] = useState<ChartData>(chartData);
+  const [data, setData] = useState<ChartData>();
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
       try {
-        // const response = await fetch(
-        //   "http://blockflow.duckdns.org:8080/restart/info"
-        // );
-        // const chartData = await response.json();
+        const response = await fetch(
+          "http://blockflow.duckdns.org:8080/restart/info"
+        );
+        const chartData = await response.json();
         setData(chartData as ChartData);
         setLoading(false);
       } catch (error) {
@@ -32,6 +24,5 @@ export const useChartData = () => {
 
     fetchData();
   }, []);
-
   return { loading, data };
 };
