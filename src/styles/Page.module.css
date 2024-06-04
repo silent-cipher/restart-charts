@@ -14,34 +14,9 @@
   width: 100%;
   max-width: 1050px;
 }
+
 .main-container > h1 {
   margin-bottom: 2rem;
-}
-
-.chart-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-bottom: 2rem;
-  color: #000;
-  width: 100%;
-}
-
-.chart-container {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 2 / 1;
-  margin-top: 2rem;
-  margin-bottom: 30px;
-  background-color: #fff;
-  padding: 1.2rem;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.chart-container > canvas {
-  width: 100% !important;
-  height: auto !important;
 }
 
 @media (width < 800px) {
@@ -52,14 +27,8 @@
     font-size: 1.8rem;
     font-weight: 600;
   }
-  .chart-section > h2 {
-    font-size: 1.5rem;
-    font-weight: 600;
-  }
-  .chart-container {
-    padding: 0.5rem;
-  }
 }
+
 @media (width < 600px) {
   .main {
     padding: 0.5rem;
@@ -67,20 +36,4 @@
   .main-container > h1 {
     font-size: 1.5rem;
   }
-  .chart-section > h2 {
-    font-size: 1.2rem;
-  }
-  .chart-container {
-    padding: 0.2rem;
-  }
 }
-/* @media (width < 650px) {
-  .chart-container {
-    aspect-ratio: auto;
-  }
-  .chart-container > canvas {
-    width: 100% !important;
-    height: 400px !important;
-    aspect-ratio: auto !important;
-  }
-} */

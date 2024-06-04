@@ -58,6 +58,21 @@ export const prepareOneMonthData = (
   return oneMonthData;
 };
 
-export const capitalizeFirstLetter = (str: string) => {
-  return str.charAt(0).toUpperCase() + str.slice(1);
+export const getChartOptions = (xTitle: string, yTitle: string) => {
+  return {
+    scales: {
+      x: {
+        title: {
+          display: true,
+          text: xTitle,
+        },
+      },
+      y: {
+        title: {
+          display: true,
+          text: yTitle,
+        },
+      },
+    },
+  };
 };

@@ -7,6 +7,9 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Restart Data",
   description: "See Chain Restarts",
+  icons: {
+    icon: "/blockflow.svg",
+  },
 };
 
 export default function RootLayout({

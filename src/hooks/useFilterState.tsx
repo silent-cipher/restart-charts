@@ -40,7 +40,7 @@ export const useFilterState = (data: ChartData | undefined) => {
     chainData: chainData
       ? {
           data: {
-            [chain]: chainData,
+            [chain]: chainData as ChartData["data"][keyof ChartData["data"]],
           },
         }
       : undefined,

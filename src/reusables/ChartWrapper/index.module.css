@@ -1,0 +1,28 @@
+.chart-container {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 2 / 1;
+  margin-top: 2rem;
+  margin-bottom: 30px;
+  background-color: #fff;
+  padding: 1.2rem;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.chart-container > canvas {
+  width: 100% !important;
+  height: auto !important;
+}
+
+@media (width < 800px) {
+  .chart-container {
+    padding: 0.5rem;
+  }
+}
+
+@media (width < 600px) {
+  .chart-container {
+    padding: 0.2rem;
+  }
+}

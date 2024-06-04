@@ -1,0 +1,11 @@
+.filter-container {
+  padding: 1rem 2rem;
+  background-color: #fff;
+  border-radius: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 2rem;
+}

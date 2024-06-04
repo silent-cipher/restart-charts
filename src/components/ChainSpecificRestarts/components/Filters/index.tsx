@@ -1,21 +1,22 @@
-import styles from "@/styles/Filters.module.css";
-import { ChainState, ChartData } from "@/utils/types";
-import FilterWrapper from "./FilterWrapper";
-import { capitalizeFirstLetter } from "@/utils/helper";
+import styles from "./index.module.css";
+import FilterWrapper from "@/reusables/FilterWrapper";
+import { ChartData, ChainState } from "@/utils/types";
+
 type FiltersProps = {
-  data: ChartData;
+  monthData: ChartData;
   chainState: ChainState;
   setChainState: React.Dispatch<React.SetStateAction<ChainState>>;
 };
 
 const Filters: React.FC<FiltersProps> = ({
-  data,
+  monthData,
   chainState,
   setChainState,
 }) => {
   const handleChainStateChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setChainState({ ...chainState, [e.target.id]: e.target.value });
   };
+
   return (
     <div className={styles["filter-container"]}>
       <FilterWrapper
@@ -24,7 +25,7 @@ const Filters: React.FC<FiltersProps> = ({
         value={chainState.chain}
         handleChange={handleChainStateChange}
       >
-        {Object.keys(data.data).map((chain) => (
+        {Object.keys(monthData.data).map((chain) => (
           <option key={chain} value={chain}>
             {chain}
           </option>
@@ -37,7 +38,7 @@ const Filters: React.FC<FiltersProps> = ({
         handleChange={handleChainStateChange}
       >
         <option value={"all"}>All</option>
-        {Object.keys(data.data[chainState.chain]).map((month) => (
+        {Object.keys(monthData.data[chainState.chain]).map((month) => (
           <option key={month} value={month}>
             {month}
           </option>

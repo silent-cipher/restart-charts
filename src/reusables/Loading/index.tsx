@@ -1,5 +1,6 @@
-import classes from "@/styles/Loading.module.css";
-export const Loading = () => {
+import classes from "./index.module.css";
+
+const Loading = () => {
   return (
     <div className={classes["loader-wrapper"]}>
       <div className={classes.loader}>
@@ -13,3 +14,5 @@ export const Loading = () => {
     </div>
   );
 };
+
+export default Loading;

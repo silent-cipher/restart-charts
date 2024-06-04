@@ -1,4 +1,4 @@
-import styles from "@/styles/Filters.module.css";
+import styles from "./index.module.css";
 
 interface FilterWrapperProps {
   title: string;
